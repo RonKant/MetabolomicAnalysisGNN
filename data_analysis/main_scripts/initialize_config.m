@@ -1,6 +1,8 @@
 global CONFIG
 CONFIG = {};
 
+Config.ionization = "NEG";
+
 %% raw data analysis
 % EIC extraction
 Config.MS_ACCURACY = 5/1000000; % 5 ppm

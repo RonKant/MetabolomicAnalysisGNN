@@ -6,8 +6,10 @@ metadata = constructmetadata(mzxmlDirectory);
 drugNames = unique(metadata(metadata.isDrug, :).drugName);
 
 for drugName = drugNames'
-    drugName
-    drugMetadata = metadata((metadata.drugName == drugName) | (~metadata.isDrug), :);
+    drugMetadata = metadata( ...
+        (metadata.ionization == Config.ionization) ...
+        & ((metadata.drugName == drugName) | (~metadata.isDrug)) ...
+        , :);
     filePaths = cellfun(@(fileName) char(fullfile(mzxmlDirectory, fileName)), drugMetadata.fileName, 'UniformOutput', false);
 
     [LCMS, T, samples, grouping] = loadLCMS(filePaths, drugMetadata.isDrug);
