@@ -6,6 +6,7 @@ function [LCMS, T, samples, grouping] = loadLCMS(filePaths, isDrug)
     tic;
 
     for i = 1:length(filePaths)
+        fprintf('Loading sample %d / %d', i, length(filePaths));
         samples{i} = loadsampleLCMS(filePaths{i});
     end
 
@@ -44,7 +45,7 @@ function [LCMS, T, samples, grouping] = loadLCMS(filePaths, isDrug)
     sample_labels = cell(length(filePaths), 1);
 
     for i = 1:length(filePaths)
-        splited = strsplit(filePaths{i}, '/');
+        splited = strsplit(filePaths{i}, '\');
         name = strsplit(splited{end}, '.');
         name = name{1};
         sample_labels{i} = name;

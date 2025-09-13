@@ -9,7 +9,7 @@ Config.MS_ACCURACY = 5/1000000; % 5 ppm
 Config.MZ_SLICING_WIDTH = 0.0001;
 Config.MAX_MZ = 1200;
 % Config.MIN_MZ = 70;
-Config.EIC_CONSECUTIVE_SCANS = 1;
+Config.EIC_CONSECUTIVE_SCANS = 3;
 
 % Peak detection
 Config.BASELING_SMOOTH_WINDOW = 20;

@@ -1,11 +1,14 @@
 initialize_config;
 
 mzxmlDirectory = "C:\Ron\research\data\new_experiment_6x6\Batch1\";
+% mzxmlDirectory = "C:\Ron\research\data\Data_mzxml\20210728_1-9_drugs";
+
 resultsPath = "C:\Ron\research\results\";
 metadata = constructmetadata(mzxmlDirectory);
 drugNames = unique(metadata(metadata.isDrug, :).drugName);
 
 for drugName = drugNames'
+
     drugMetadata = metadata( ...
         (metadata.ionization == Config.ionization) ...
         & ((metadata.drugName == drugName) | (~metadata.isDrug)) ...
